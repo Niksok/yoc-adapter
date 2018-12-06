@@ -29,7 +29,7 @@ function partnerValidator(configs) {
                     '*': {
                         type: 'object',
                         properties: {
-                            placementId: {
+                            adSlotId: {
                                 type: 'string',
                                 minLength: 1
                             }
