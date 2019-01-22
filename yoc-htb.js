@@ -174,6 +174,9 @@ function YocHtb(configs) {
         queryObj.u = Browser.getPageUrl();
         queryObj.pt = 'net';
         queryObj.cur = 'USD';
+        queryObj.wrapperType = 'IX';
+        queryObj.wrapperVersion = SpaceCamp.version;
+        queryObj.adapterVersion= __profile.version;
         queryObj.cb
             = 'window.' + SpaceCamp.NAMESPACE + '.' + __profile.namespace + '.adResponseCallbacks.' + callbackId;
 
@@ -333,7 +336,8 @@ function YocHtb(configs) {
             * If firing a tracking pixel is not required or the pixel url is part of the adm,
             * leave empty;
             */
-            var pixelUrl = Browser.getProtocol() + '//t.visx.net/push_sync';
+            var pixelUrl = Browser.getProtocol() + '//t.visx.net/push_sync?wrapperType=IX&wrapperVersion=' +
+                SpaceCamp.version + '&adapterVersion=' + __profile.version;
 
             /* --------------------------------------------------------------------------------------- */
 
@@ -428,7 +432,7 @@ function YocHtb(configs) {
             partnerId: 'YocHtb',
             namespace: 'YocHtb',
             statsId: 'YOC',
-            version: '2.0.0',
+            version: '2.0.1',
             targetingType: 'slot',
             enabledAnalytics: {
                 requestTime: true

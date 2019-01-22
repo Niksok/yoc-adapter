@@ -50,10 +50,13 @@ USD
 | cb | No | string | JavaScript function to wrap response with, if empty or absent pure JSON will be returned |
 | gdpr_consent | No | string | Shows whether GDPR regulations should apply to the user or not |
 | gdpr_applies | No | string | Shows whether the user has given its consent based on IAB consent policy |
+| wrapperType | No | string | Type of wrapper, for example "IX" |
+| wrapperVersion | No | string | Version of the wrapper script |
+| adapterVersion | No | string | Version of the adapter |
  
 ### Example
 ```javascript
- https://t.visx.net/hb?auids=903536%2C903535&u=http%3A%2F%2Flocalhost%3A5837%2Fpublic%2Fdebugger%2Fadapter-debugger.html&pt=net&cur=USD&cb=window.headertag.YocHtb.adResponseCallbacks.0RXiEn86&gdpr_consent=TEST_GDPR_CONSENT_STRING&gdpr_applies=1
+ https://t.visx.net/hb?auids=903536%2C903535&u=http%3A%2F%2Flocalhost%3A5837%2Fpublic%2Fdebugger%2Fadapter-debugger.html&pt=net&cur=USD&cb=window.headertag.YocHtb.adResponseCallbacks.0RXiEn86&gdpr_consent=TEST_GDPR_CONSENT_STRING&gdpr_applies=1&wrapperType=IX&wrapperVersion=2.4.2&adapterVersion=2.0.1
 ```
  
 ## Bid Response Information

@@ -43,6 +43,9 @@ function validateBidRequest(request) {
     expect(request.query.auids).toBe('903535,903536');
     expect(request.query.pt).toBe('net');
     expect(request.query.cur).toBe('USD');
+    expect(request.query.wrapperType).toBe('IX');
+    expect(request.query.wrapperVersion).toMatch(/\d+\.\d+\.\d+/);
+    expect(request.query.adapterVersion).toMatch(/\d+\.\d+\.\d+/);
 }
 
 function getValidResponse(request, creative) {
