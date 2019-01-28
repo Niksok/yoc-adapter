@@ -20,11 +20,11 @@ function getConfig() {
     return {
         xSlots: {
             1: {
-                adSlotId: '903535',
+                auid: '903535',
                 sizes: [[300, 250], [300, 600]]
             },
             2: {
-                adSlotId: '903536',
+                auid: '903536',
                 sizes: [[300, 600]]
             }
         }
@@ -41,7 +41,6 @@ function getBidRequestRegex() {
 function validateBidRequest(request) {
     // Check query string parameters.
     expect(request.query.auids).toBe('903535,903536');
-    expect(request.query.pt).toBe('net');
     expect(request.query.cur).toBe('USD');
     expect(request.query.wrapperType).toBe('IX');
     expect(request.query.wrapperVersion).toMatch(/\d+\.\d+\.\d+/);

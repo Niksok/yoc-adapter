@@ -29,7 +29,7 @@ function partnerValidator(configs) {
                     '*': {
                         type: 'object',
                         properties: {
-                            adSlotId: {
+                            auid: {
                                 type: 'string',
                                 minLength: 1
                             }

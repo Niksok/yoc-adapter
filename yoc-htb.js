@@ -130,7 +130,7 @@ function YocHtb(configs) {
 
         /* ---------------------- PUT CODE HERE ------------------------------------ */
         var queryObj = {};
-        var callbackId = System.generateUniqueId();
+        var callbackId = '_' + System.generateUniqueId();
 
         /* Change this to your bidder endpoint. */
         var baseUrl = Browser.getProtocol() + '//t.visx.net/hb';
@@ -164,19 +164,18 @@ function YocHtb(configs) {
 
         /* ---------------- Craft bid request using the above returnParcels --------- */
 
-        var adSlotIds = [];
+        var auids = [];
 
         for (var i = 0; i < returnParcels.length; i++) {
-            adSlotIds.push(returnParcels[i].xSlotRef.adSlotId);
+            auids.push(returnParcels[i].xSlotRef.auid);
         }
 
-        queryObj.auids = adSlotIds.join(',');
+        queryObj.auids = auids.join(',');
         queryObj.u = Browser.getPageUrl();
-        queryObj.pt = 'net';
         queryObj.cur = 'USD';
         queryObj.wrapperType = 'IX';
         queryObj.wrapperVersion = SpaceCamp.version;
-        queryObj.adapterVersion= __profile.version;
+        queryObj.adapterVersion = __profile.version;
         queryObj.cb
             = 'window.' + SpaceCamp.NAMESPACE + '.' + __profile.namespace + '.adResponseCallbacks.' + callbackId;
 
@@ -282,7 +281,7 @@ function YocHtb(configs) {
                 /* ----------- Fill this out to find a matching bid for the current parcel ------------- */
                 bids = seatbids[i].bid;
                 for (n = 0; n < bids.length; n++) {
-                    if (curReturnParcel.xSlotRef.adSlotId === String(bids[n].auid)) {
+                    if (curReturnParcel.xSlotRef.auid === String(bids[n].auid)) {
                         curBid = bids[n];
                         bids.splice(n, 1);
 
@@ -336,15 +335,15 @@ function YocHtb(configs) {
             * If firing a tracking pixel is not required or the pixel url is part of the adm,
             * leave empty;
             */
-            var pixelUrl = Browser.getProtocol() + '//t.visx.net/push_sync?wrapperType=IX&wrapperVersion=' +
-                SpaceCamp.version + '&adapterVersion=' + __profile.version;
+            var pixelUrl = Browser.getProtocol() + '//t.visx.net/push_sync?wrapperType=IX&wrapperVersion='
+                + SpaceCamp.version + '&adapterVersion=' + __profile.version;
 
             /* --------------------------------------------------------------------------------------- */
 
             curBid = null;
             if (bidIsPass) {
                 //? if (DEBUG) {
-                Scribe.info(__profile.partnerId + ' returned pass for { id: ' + adResponse.id + ' }.');
+                Scribe.info(__profile.partnerId + ' returned pass for { id: ' + curReturnParcel.xSlotRef.auid + ' }.');
                 //? }
                 if (__profile.enabledAnalytics.requestTime) {
                     __baseClass._emitStatsEvent(sessionId, 'hs_slot_pass', headerStatsInfo);
@@ -393,6 +392,7 @@ function YocHtb(configs) {
                 expiry = __profile.features.demandExpiry.value + System.now();
             }
 
+
             var pubKitAdId = RenderService.registerAd({
                 sessionId: sessionId,
                 partnerId: __profile.partnerId,
@@ -432,7 +432,7 @@ function YocHtb(configs) {
             partnerId: 'YocHtb',
             namespace: 'YocHtb',
             statsId: 'YOC',
-            version: '2.0.1',
+            version: '1.0.0',
             targetingType: 'slot',
             enabledAnalytics: {
                 requestTime: true
