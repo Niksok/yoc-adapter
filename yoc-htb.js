@@ -392,7 +392,6 @@ function YocHtb(configs) {
                 expiry = __profile.features.demandExpiry.value + System.now();
             }
 
-
             var pubKitAdId = RenderService.registerAd({
                 sessionId: sessionId,
                 partnerId: __profile.partnerId,
