@@ -35,9 +35,6 @@
 | Slot Mapping Sytle (Size / Multiple Sizes / Slot) | Slot |
 | Request Architecture (MRA / SRA) | SRA |
  
-## Currencies Supported
-USD
- 
 ## Bid Request Information
 ### Parameters
 | Key | Required | Type | Description |
@@ -54,7 +51,7 @@ USD
  
 ### Example
 ```javascript
- https://t.visx.net/hb?auids=903536%2C903535&u=http%3A%2F%2Flocalhost%3A5837%2Fpublic%2Fdebugger%2Fadapter-debugger.html&cur=USD&cb=window.headertag.YocHtb.adResponseCallbacks._0RXiEn86&gdpr_consent=TEST_GDPR_CONSENT_STRING&gdpr_applies=1&wrapperType=IX&wrapperVersion=2.4.2&adapterVersion=2.0.1
+ https://t.visx.net/hb?auids=903536%2C903535&u=http%3A%2F%2Flocalhost%3A5837%2Fpublic%2Fdebugger%2Fadapter-debugger.html&cb=window.headertag.YocHtb.adResponseCallbacks._0RXiEn86&gdpr_consent=TEST_GDPR_CONSENT_STRING&gdpr_applies=1&wrapperType=IX&wrapperVersion=2.4.2&adapterVersion=2.0.1
 ```
  
 ## Bid Response Information

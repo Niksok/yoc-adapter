@@ -172,7 +172,6 @@ function YocHtb(configs) {
 
         queryObj.auids = auids.join(',');
         queryObj.u = Browser.getPageUrl();
-        queryObj.cur = 'USD';
         queryObj.wrapperType = 'IX';
         queryObj.wrapperVersion = SpaceCamp.version;
         queryObj.adapterVersion = __profile.version;
